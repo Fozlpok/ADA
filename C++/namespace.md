@@ -1,5 +1,5 @@
 # C++
-##a.What are the differences between C and C++?
+## a. What are the differences between C and C++?
 ```C++
 #include <iostream> // Standard I/O
 using namespace std; // reduce std::
@@ -12,9 +12,7 @@ int main(void)
     return 0;
 }
 ```
-##b.In C++, we can group a set of variables, constants,
-functions, and user-defined data types with a group
-name.
+## b. In C++, we can group a set of variables, constants, functions, and user-defined data types with a group name.
 ```C++
 #include <iostream>
 namespace MyGroup{
@@ -27,8 +25,7 @@ int main(void){
     return 0;
 }
 ```
-##c.In C++, all standard functions, constants, types, and
-objects are defined in the namespace std.
+## c. In C++, all standard functions, constants, types, and objects are defined in the namespace std.
 ```C++
 #include <iostream> // C++ standard I/O
 #include <cstdio> // C-style standard I/O
