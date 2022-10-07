@@ -47,3 +47,80 @@ int main(void){
     return 0;
 }
 ```
+
+## d. 
+* Item Unqualified name
+  * A name without any scope operator
+  * 沒被const或volatile修飾的標識符(unqualified)
+* Qualified name
+  * A name with one or more scope operators
+  * const和volatile屬於類型修飾符(qualifier)
+```C++
+#include <iostream>
+int g = 0;
+int main(void){
+int x = 0;
+std::cout << x; // x is a unqualified name
+std::cout << g; // g is a unqualified name
+std::cout << ::g; // g is a qualified name
+std::cout << std::endl;
+// std::cout and std::endl both are qualified names
+return 0;
+}
+```
+
+## e. 
+* using namespace
+  * Reduce the number of scope operators for a qualified name that belongs to a namespace
+  ```C++
+  #include <iostream>
+  using namespace std;
+  namespace MyGroup1{
+    int x;
+        namespace MyGroup2{
+            void printX() {cout << x << endl; }
+        }
+  }
+  using namespace Mygroup1;
+  int main(void){
+    x = 10; // Mygroup1::X
+    MyGroup2::printX(); // Mygroup1::MyGroup1::MyGroup2::printX
+    using namespace Mygroup2; // MyGroup1::MyGroup2::printX
+    printX();   
+  }
+  ```
+
+## f.
+  * using qualified_name
+    * Convert a qualified name to an unqualified name
+```C++
+#include <iostream>
+int main(void){
+    using std::cout;
+    int x = 0;
+    {
+        using std::end;
+        cout << x << endl; // OK
+    }
+    cout << x << endl; // compiling error
+}
+```
+
+## g.
+* Define an alias for a defined data type
+    * typedef definedTypeName Alias;
+            * typedef unsigned int uint;
+            * typedef unsigned int nonnegative;
+            * typedef unsigned int ui;
+    * In C++11, use using instead of typedef
+    * using alias = definedTypeName
+        * using uint = unsigned;
+        * using nonnegative = unsigned int;
+        * using ui = unsigned int;
+    * using supports the template types
+
+* A literal is a value that is expressed as itself.
+* A constant is a data type that substitutes a literal.
+    * const double PI = 3.1415
+    * PI is a constant, 3.1415 is a literal
+
